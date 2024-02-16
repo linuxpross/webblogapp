@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Саит Аргишти</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1 class="mb-0">Саит Аргишти</h1>
+        <a href="http://127.0.0.1:8000/chat/"><h1 style="color: aliceblue;">Аргишти чат </h1></a>
+    </header>
+
+    <div class="container py-4">
+        {% for post in posts %}
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">Опубликовано: {{ post.published_date }}</p>
+                <p class="card-text">{{ post.text|linebreaks }}</p>
+                <img src="{{ post.img.url }}" class="img-fluid" alt="Изображение">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Подключение Bootstrap JS (необязательно) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
